@@ -1,0 +1,9 @@
+'Predefined commands that has no parametres or only external parametres
+#S|T|TIME|[]#
+#S|D|DATE|[]#
+#S|SENDK|SENDK|[$1&$2]#
+
+
+
+#S|LOGTEST|LGFIL|[C:\Users\Ваня\Google Диск\Работа\test\test.txt&$1&-1]#
+

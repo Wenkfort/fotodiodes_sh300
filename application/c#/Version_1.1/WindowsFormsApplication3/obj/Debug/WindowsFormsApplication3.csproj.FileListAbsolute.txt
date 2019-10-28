@@ -1,0 +1,28 @@
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe.config
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.pdb
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.Properties.Resources.resources
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.exe
+C:\Users\Ваня\Google Диск\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.pdb
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe.config
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\UssrMultimeter.pdb
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojResolveAssemblyReference.cache
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.Properties.Resources.resources
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.cache
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.CoreCompileInputs.cache
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.exe
+C:\Users\Ваня\YandexDisk\Работа\Приложение\c#\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UssrMultimeter.pdb
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe.config
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.pdb
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csprojAssemblyReference.cache
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.Properties.Resources.resources
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.cache
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.exe
+C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.pdb

@@ -1,0 +1,10 @@
+C:\asm\C#COM-port\SerialPortCommunication\bin\Debug\SerialPortCommunication.exe.config
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\SerialPortCommunication.exe
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\SerialPortCommunication.pdb
+C:\asm\C#COM-port\SerialPortCommunication\bin\Debug\SerialPortCommunication.exe
+C:\asm\C#COM-port\SerialPortCommunication\bin\Debug\SerialPortCommunication.pdb
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\ResolveAssemblyReference.cache
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\PCComm.frmMain.resources
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\PCComm.Properties.Resources.resources
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\GenerateResource.read.1.tlog
+C:\asm\C#COM-port\SerialPortCommunication\obj\Debug\GenerateResource.write.1.tlog
