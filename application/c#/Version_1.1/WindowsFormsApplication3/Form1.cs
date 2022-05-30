@@ -68,10 +68,10 @@ namespace WindowsFormsApplication3
             int numberOfRelays = 0;
             if (radioButton1.Checked) numberOfRelays = 16;
             else if (radioButton2.Checked) numberOfRelays = 8;
-            else { 
+            else {
                 richTextBox1.Text = "Choose number of channels!";
                 EnabledButtons(false, true, false, true);
-                return; 
+                return;
             }
 
             for (int i = 0; i < numberOfRelays; i++) {
