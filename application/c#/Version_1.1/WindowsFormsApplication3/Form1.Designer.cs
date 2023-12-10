@@ -27,7 +27,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.com_ports_combo_box = new System.Windows.Forms.ComboBox();
-            this.voltage_unit_combo_box = new System.Windows.Forms.ComboBox();
+            this.voltage_range_combo_box = new System.Windows.Forms.ComboBox();
             this.relays_16_radio_button = new System.Windows.Forms.RadioButton();
             this.relays_8_radio_button = new System.Windows.Forms.RadioButton();
             this.connect_button = new System.Windows.Forms.Button();
@@ -40,13 +40,13 @@
             this.time_zero_label = new System.Windows.Forms.Label();
             this.time_2thousand_label = new System.Windows.Forms.Label();
             this.time_label = new System.Windows.Forms.Label();
-            this.time_thousand_label = new System.Windows.Forms.Label();
-            this.range_combo_box = new System.Windows.Forms.ComboBox();
+            this.relays_4_radio_button = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.time_track_bar)).BeginInit();
             this.SuspendLayout();
             // 
             // com_ports_combo_box
             // 
+            this.com_ports_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.com_ports_combo_box.FormattingEnabled = true;
             this.com_ports_combo_box.Location = new System.Drawing.Point(921, 20);
             this.com_ports_combo_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -54,14 +54,15 @@
             this.com_ports_combo_box.Size = new System.Drawing.Size(180, 28);
             this.com_ports_combo_box.TabIndex = 0;
             // 
-            // voltage_unit_combo_box
+            // voltage_range_combo_box
             // 
-            this.voltage_unit_combo_box.FormattingEnabled = true;
-            this.voltage_unit_combo_box.Location = new System.Drawing.Point(1039, 135);
-            this.voltage_unit_combo_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.voltage_unit_combo_box.Name = "voltage_unit_combo_box";
-            this.voltage_unit_combo_box.Size = new System.Drawing.Size(62, 28);
-            this.voltage_unit_combo_box.TabIndex = 1;
+            this.voltage_range_combo_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.voltage_range_combo_box.FormattingEnabled = true;
+            this.voltage_range_combo_box.Location = new System.Drawing.Point(921, 167);
+            this.voltage_range_combo_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.voltage_range_combo_box.Name = "voltage_range_combo_box";
+            this.voltage_range_combo_box.Size = new System.Drawing.Size(180, 28);
+            this.voltage_range_combo_box.TabIndex = 1;
             // 
             // relays_16_radio_button
             // 
@@ -111,7 +112,7 @@
             // 
             // save_button
             // 
-            this.save_button.Location = new System.Drawing.Point(990, 482);
+            this.save_button.Location = new System.Drawing.Point(991, 513);
             this.save_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(112, 35);
@@ -122,7 +123,7 @@
             // 
             // start_button
             // 
-            this.start_button.Location = new System.Drawing.Point(868, 482);
+            this.start_button.Location = new System.Drawing.Point(871, 513);
             this.start_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(112, 35);
@@ -133,7 +134,7 @@
             // 
             // main_text_box
             // 
-            this.main_text_box.Location = new System.Drawing.Point(18, 249);
+            this.main_text_box.Location = new System.Drawing.Point(21, 282);
             this.main_text_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.main_text_box.Name = "main_text_box";
             this.main_text_box.Size = new System.Drawing.Size(1082, 221);
@@ -143,70 +144,64 @@
             // time_track_bar
             // 
             this.time_track_bar.LargeChange = 1;
-            this.time_track_bar.Location = new System.Drawing.Point(921, 177);
+            this.time_track_bar.Location = new System.Drawing.Point(919, 203);
             this.time_track_bar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.time_track_bar.Maximum = 5;
+            this.time_track_bar.Minimum = 1;
             this.time_track_bar.Name = "time_track_bar";
             this.time_track_bar.Size = new System.Drawing.Size(182, 69);
             this.time_track_bar.TabIndex = 9;
-            this.time_track_bar.Value = 5;
+            this.time_track_bar.Value = 1;
             this.time_track_bar.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // time_zero_label
             // 
             this.time_zero_label.AutoSize = true;
-            this.time_zero_label.Location = new System.Drawing.Point(932, 220);
+            this.time_zero_label.Location = new System.Drawing.Point(917, 252);
             this.time_zero_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.time_zero_label.Name = "time_zero_label";
             this.time_zero_label.Size = new System.Drawing.Size(18, 20);
             this.time_zero_label.TabIndex = 10;
-            this.time_zero_label.Text = "0";
+            this.time_zero_label.Text = "1";
             // 
             // time_2thousand_label
             // 
             this.time_2thousand_label.AutoSize = true;
-            this.time_2thousand_label.Location = new System.Drawing.Point(1056, 220);
+            this.time_2thousand_label.Location = new System.Drawing.Point(1083, 252);
             this.time_2thousand_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.time_2thousand_label.Name = "time_2thousand_label";
-            this.time_2thousand_label.Size = new System.Drawing.Size(45, 20);
+            this.time_2thousand_label.Size = new System.Drawing.Size(18, 20);
             this.time_2thousand_label.TabIndex = 11;
-            this.time_2thousand_label.Text = "2000";
+            this.time_2thousand_label.Text = "5";
             // 
             // time_label
             // 
             this.time_label.AutoSize = true;
-            this.time_label.Location = new System.Drawing.Point(810, 177);
+            this.time_label.Location = new System.Drawing.Point(817, 203);
             this.time_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.time_label.Name = "time_label";
-            this.time_label.Size = new System.Drawing.Size(96, 20);
+            this.time_label.Size = new System.Drawing.Size(85, 20);
             this.time_label.TabIndex = 12;
-            this.time_label.Text = "время в мс:";
+            this.time_label.Text = "время в с:";
             // 
-            // time_thousand_label
+            // relays_4_radio_button
             // 
-            this.time_thousand_label.AutoSize = true;
-            this.time_thousand_label.Location = new System.Drawing.Point(986, 220);
-            this.time_thousand_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.time_thousand_label.Name = "time_thousand_label";
-            this.time_thousand_label.Size = new System.Drawing.Size(45, 20);
-            this.time_thousand_label.TabIndex = 13;
-            this.time_thousand_label.Text = "1000";
-            // 
-            // range_combo_box
-            // 
-            this.range_combo_box.FormatString = "N0";
-            this.range_combo_box.FormattingEnabled = true;
-            this.range_combo_box.Location = new System.Drawing.Point(921, 135);
-            this.range_combo_box.Name = "range_combo_box";
-            this.range_combo_box.Size = new System.Drawing.Size(110, 28);
-            this.range_combo_box.TabIndex = 14;
+            this.relays_4_radio_button.AutoSize = true;
+            this.relays_4_radio_button.Location = new System.Drawing.Point(921, 135);
+            this.relays_4_radio_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.relays_4_radio_button.Name = "relays_4_radio_button";
+            this.relays_4_radio_button.Size = new System.Drawing.Size(88, 24);
+            this.relays_4_radio_button.TabIndex = 15;
+            this.relays_4_radio_button.TabStop = true;
+            this.relays_4_radio_button.Text = "4 relays";
+            this.relays_4_radio_button.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 535);
-            this.Controls.Add(this.range_combo_box);
-            this.Controls.Add(this.time_thousand_label);
+            this.ClientSize = new System.Drawing.Size(1118, 562);
+            this.Controls.Add(this.relays_4_radio_button);
             this.Controls.Add(this.time_label);
             this.Controls.Add(this.time_2thousand_label);
             this.Controls.Add(this.time_zero_label);
@@ -218,7 +213,7 @@
             this.Controls.Add(this.connect_button);
             this.Controls.Add(this.relays_8_radio_button);
             this.Controls.Add(this.relays_16_radio_button);
-            this.Controls.Add(this.voltage_unit_combo_box);
+            this.Controls.Add(this.voltage_range_combo_box);
             this.Controls.Add(this.com_ports_combo_box);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -232,7 +227,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox com_ports_combo_box;
-        private System.Windows.Forms.ComboBox voltage_unit_combo_box;
+        private System.Windows.Forms.ComboBox voltage_range_combo_box;
         private System.Windows.Forms.RadioButton relays_16_radio_button;
         private System.Windows.Forms.RadioButton relays_8_radio_button;
         private System.Windows.Forms.Button connect_button;
@@ -251,8 +246,7 @@
         private System.Windows.Forms.Label time_zero_label;
         private System.Windows.Forms.Label time_2thousand_label;
         private System.Windows.Forms.Label time_label;
-        private System.Windows.Forms.Label time_thousand_label;
-        private System.Windows.Forms.ComboBox range_combo_box;
+        private System.Windows.Forms.RadioButton relays_4_radio_button;
     }
 }
 

@@ -12,9 +12,9 @@ namespace WindowsFormsApplication3
 
         public Form1() {
             InitializeComponent();
+            time = get_time();
             EnabledButtons(true, false, false, false);
             SetVoltageUnitComboBox();
-            SetRangeComboBox();
             GetAvailablePorts();
         }
 
@@ -70,13 +70,13 @@ namespace WindowsFormsApplication3
 
         private void start_button_click(object sender, EventArgs e) {
             try {
-                voltage = voltage_unit_combo_box.SelectedItem.ToString();
-                code = range_text_to_code(range_combo_box.Text);
-                if (code == -1)
+                string[] voltage_range = voltage_range_combo_box.SelectedItem.ToString().Split(' ');
+                if (voltage_range.Length != 2)
                 {
-                    main_text_box.Text = "Incorrect range! Set one of available ranges: 1, 10, 100";
-                    return;
+                    main_text_box.Text = "Incorrect range!";
                 }
+                voltage = voltage_range[1];
+                code = range_text_to_code(voltage_range[0]);
 
                 EnabledButtons(false, true, false, false);
             }
@@ -91,7 +91,9 @@ namespace WindowsFormsApplication3
             int numberOfRelays = 0;
             if (relays_16_radio_button.Checked) numberOfRelays = 16;
             else if (relays_8_radio_button.Checked) numberOfRelays = 8;
-            else {
+            else if (relays_4_radio_button.Checked) numberOfRelays = 4;
+            else
+            {
                 main_text_box.Text = "Choose number of channels!";
                 EnabledButtons(false, true, false, true);
                 return;
@@ -119,16 +121,15 @@ namespace WindowsFormsApplication3
         }
 
         private void SetVoltageUnitComboBox() {
-            voltage_unit_combo_box.Items.Add("A");
-            voltage_unit_combo_box.Items.Add("mA");
-            voltage_unit_combo_box.Items.Add("uA");
-            voltage_unit_combo_box.Items.Add("nA");
-        }
-        private void SetRangeComboBox()
-        {
-            range_combo_box.Items.Add("1");
-            range_combo_box.Items.Add("10");
-            range_combo_box.Items.Add("100");
+            voltage_range_combo_box.Items.Add("1 A");
+            voltage_range_combo_box.Items.Add("100 mA");
+            voltage_range_combo_box.Items.Add("10 mA");
+            voltage_range_combo_box.Items.Add("1 mA");
+            voltage_range_combo_box.Items.Add("100 uA");
+            voltage_range_combo_box.Items.Add("10 uA");
+            voltage_range_combo_box.Items.Add("1 uA");
+            voltage_range_combo_box.Items.Add("100 nA");
+            voltage_range_combo_box.SelectedIndex = 7;
         }
 
         private void EnabledButtons(bool connect, bool disconnect, bool writeFile, bool start) {
@@ -159,11 +160,18 @@ namespace WindowsFormsApplication3
                 if (port.BytesToRead == 1) {
                     main_text_box.Text += "I am okay";
                 }
-                if (port.BytesToRead == 25) {
+                // if (port.BytesToRead == 25) {
+                if (true) {
                     counter = 0;
                     limit = 1;
 
-                    string received_data = port.ReadExisting().ToString();
+                    // string received_data = port.ReadExisting().ToString();
+                    string received_data = "11110";
+                    received_data += "0000";
+                    received_data += "0001";
+                    received_data += "0010";
+                    received_data += "0011";
+                    received_data += "0100";
 
                     ////Положение запятой = Шифр предела
                     // if (received_data[21] == '1') code += Convert.ToInt32(Math.Pow(2, 0));
@@ -229,7 +237,12 @@ namespace WindowsFormsApplication3
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            time = time_track_bar.Value * 200;
+            time = get_time();
+        }
+
+        private int get_time()
+        {
+            return time_track_bar.Value * 1000;
         }
     }
 }
