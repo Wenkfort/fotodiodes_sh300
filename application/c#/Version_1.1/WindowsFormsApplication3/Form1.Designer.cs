@@ -27,7 +27,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.com_ports_combo_box = new System.Windows.Forms.ComboBox();
-            this.range_combo_box = new System.Windows.Forms.ComboBox();
+            this.voltage_unit_combo_box = new System.Windows.Forms.ComboBox();
             this.relays_16_radio_button = new System.Windows.Forms.RadioButton();
             this.relays_8_radio_button = new System.Windows.Forms.RadioButton();
             this.connect_button = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.time_2thousand_label = new System.Windows.Forms.Label();
             this.time_label = new System.Windows.Forms.Label();
             this.time_thousand_label = new System.Windows.Forms.Label();
+            this.range_combo_box = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.time_track_bar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,14 +54,14 @@
             this.com_ports_combo_box.Size = new System.Drawing.Size(180, 28);
             this.com_ports_combo_box.TabIndex = 0;
             // 
-            // range_combo_box
+            // voltage_unit_combo_box
             // 
-            this.range_combo_box.FormattingEnabled = true;
-            this.range_combo_box.Location = new System.Drawing.Point(921, 135);
-            this.range_combo_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.range_combo_box.Name = "range_combo_box";
-            this.range_combo_box.Size = new System.Drawing.Size(180, 28);
-            this.range_combo_box.TabIndex = 1;
+            this.voltage_unit_combo_box.FormattingEnabled = true;
+            this.voltage_unit_combo_box.Location = new System.Drawing.Point(1039, 135);
+            this.voltage_unit_combo_box.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.voltage_unit_combo_box.Name = "voltage_unit_combo_box";
+            this.voltage_unit_combo_box.Size = new System.Drawing.Size(62, 28);
+            this.voltage_unit_combo_box.TabIndex = 1;
             // 
             // relays_16_radio_button
             // 
@@ -190,11 +191,21 @@
             this.time_thousand_label.TabIndex = 13;
             this.time_thousand_label.Text = "1000";
             // 
+            // range_combo_box
+            // 
+            this.range_combo_box.FormatString = "N0";
+            this.range_combo_box.FormattingEnabled = true;
+            this.range_combo_box.Location = new System.Drawing.Point(921, 135);
+            this.range_combo_box.Name = "range_combo_box";
+            this.range_combo_box.Size = new System.Drawing.Size(110, 28);
+            this.range_combo_box.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1120, 535);
+            this.Controls.Add(this.range_combo_box);
             this.Controls.Add(this.time_thousand_label);
             this.Controls.Add(this.time_label);
             this.Controls.Add(this.time_2thousand_label);
@@ -207,7 +218,7 @@
             this.Controls.Add(this.connect_button);
             this.Controls.Add(this.relays_8_radio_button);
             this.Controls.Add(this.relays_16_radio_button);
-            this.Controls.Add(this.range_combo_box);
+            this.Controls.Add(this.voltage_unit_combo_box);
             this.Controls.Add(this.com_ports_combo_box);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -221,7 +232,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox com_ports_combo_box;
-        private System.Windows.Forms.ComboBox range_combo_box;
+        private System.Windows.Forms.ComboBox voltage_unit_combo_box;
         private System.Windows.Forms.RadioButton relays_16_radio_button;
         private System.Windows.Forms.RadioButton relays_8_radio_button;
         private System.Windows.Forms.Button connect_button;
@@ -241,6 +252,7 @@
         private System.Windows.Forms.Label time_2thousand_label;
         private System.Windows.Forms.Label time_label;
         private System.Windows.Forms.Label time_thousand_label;
+        private System.Windows.Forms.ComboBox range_combo_box;
     }
 }
 

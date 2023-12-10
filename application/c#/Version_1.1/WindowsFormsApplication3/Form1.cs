@@ -13,7 +13,8 @@ namespace WindowsFormsApplication3
         public Form1() {
             InitializeComponent();
             EnabledButtons(true, false, false, false);
-            SetTextComboBox2();
+            SetVoltageUnitComboBox();
+            SetRangeComboBox();
             GetAvailablePorts();
         }
 
@@ -51,14 +52,36 @@ namespace WindowsFormsApplication3
                 writeToFile();
             }
         }
+        private int range_text_to_code(string range_string)
+        {
+            range_string = range_string.Replace(" ", string.Empty);
+
+            switch (range_string)
+            {
+                case "1":
+                    return 2;
+                case "10":
+                    return 3;
+                case "100":
+                    return 1;
+            }
+            return -1;
+        }
 
         private void start_button_click(object sender, EventArgs e) {
             try {
-                voltage = range_combo_box.SelectedItem.ToString();
+                voltage = voltage_unit_combo_box.SelectedItem.ToString();
+                code = range_text_to_code(range_combo_box.Text);
+                if (code == -1)
+                {
+                    main_text_box.Text = "Incorrect range! Set one of available ranges: 1, 10, 100";
+                    return;
+                }
+
                 EnabledButtons(false, true, false, false);
             }
             catch {
-                main_text_box.Text = "Choose range!";
+                main_text_box.Text = "Set correct range!";
                 return;
             }
             main_text_box.Clear();
@@ -83,7 +106,7 @@ namespace WindowsFormsApplication3
                 //richTextBox1.Text += " code: " + code;
                 if (i != numberOfRelays) main_text_box.Text += ",  ";
             }
-            main_text_box.Text += "" + voltage;
+            main_text_box.Text += voltage;
 
             EnabledButtons(false, true, true, true);
             port.Write("e");
@@ -95,11 +118,17 @@ namespace WindowsFormsApplication3
             com_ports_combo_box.Items.AddRange(ports);
         }
 
-        private void SetTextComboBox2() {
-            range_combo_box.Items.Add("A");
-            range_combo_box.Items.Add("mA");
-            range_combo_box.Items.Add("uA");
-            range_combo_box.Items.Add("nA");
+        private void SetVoltageUnitComboBox() {
+            voltage_unit_combo_box.Items.Add("A");
+            voltage_unit_combo_box.Items.Add("mA");
+            voltage_unit_combo_box.Items.Add("uA");
+            voltage_unit_combo_box.Items.Add("nA");
+        }
+        private void SetRangeComboBox()
+        {
+            range_combo_box.Items.Add("1");
+            range_combo_box.Items.Add("10");
+            range_combo_box.Items.Add("100");
         }
 
         private void EnabledButtons(bool connect, bool disconnect, bool writeFile, bool start) {
@@ -132,20 +161,19 @@ namespace WindowsFormsApplication3
                 }
                 if (port.BytesToRead == 25) {
                     counter = 0;
-                    code = 0;
                     limit = 1;
 
-                    string a = port.ReadExisting().ToString();
+                    string received_data = port.ReadExisting().ToString();
 
                     ////Положение запятой = Шифр предела
-                    if (a[21] == '1') code += Convert.ToInt32(Math.Pow(2, 0));
-                    if (a[22] == '1') code += Convert.ToInt32(Math.Pow(2, 1));
-                    if (a[23] == '1') code += Convert.ToInt32(Math.Pow(2, 0));
-                    if (a[24] == '1') code += Convert.ToInt32(Math.Pow(2, 1));
+                    // if (received_data[21] == '1') code += Convert.ToInt32(Math.Pow(2, 0));
+                    // if (received_data[22] == '1') code += Convert.ToInt32(Math.Pow(2, 1));
+                    // if (received_data[23] == '1') code += Convert.ToInt32(Math.Pow(2, 0));
+                    // if (received_data[24] == '1') code += Convert.ToInt32(Math.Pow(2, 1));
 
                     ////переход от V к mV
-                    if (a[0] == '1') counter += Convert.ToInt32(Math.Pow(2, 0));
-                    if (a[1] == '1') counter += Convert.ToInt32(Math.Pow(2, 1));
+                    if (received_data[0] == '1') counter += Convert.ToInt32(Math.Pow(2, 0));
+                    if (received_data[1] == '1') counter += Convert.ToInt32(Math.Pow(2, 1));
 
                     //Знак - H6
                     //string temp = "~";
@@ -154,7 +182,7 @@ namespace WindowsFormsApplication3
                     //richTextBox1.Text += temp;
 
                     //1/0 - H5
-                    if (a[4] == '1') main_text_box.Text += "1";
+                    if (received_data[4] == '1') main_text_box.Text += "1";
                     else main_text_box.Text += "0";
                     if (code == 0 || code == 2) main_text_box.Text += ".";
 
@@ -162,12 +190,15 @@ namespace WindowsFormsApplication3
                     for (int i = 0; i < 4; i++) {
                         int result = 0;
                         for (int j = 0; j < 4; j++) {
-                            if (a[i * 4 + j + 5] == '1') {
+                            if (received_data[i * 4 + j + 5] == '1') {
                                 result += Convert.ToInt32(Math.Pow(2, 3 - j));
                             }
                         }
                         main_text_box.Text += result;
-                        if ((i == 0 && code == 3) || (i == 1 && code == 1) || (i == 1 && code == 4)) main_text_box.Text += ".";
+                        if ((i == 0 && code == 3) || (i == 1 && code == 1) || (i == 1 && code == 4))
+                        {
+                            main_text_box.Text += ".";
+                        }
                     }
                     limit = (code == 0) ? 1000 : ((code == 1) ? 100 : ((code == 2) ? 1 : 10));
                     //if (counter == 1) limit /= 10;
@@ -176,7 +207,6 @@ namespace WindowsFormsApplication3
 
                     //Шифр
                     //richTextBox1.Invoke((MethodInvoker)(() => richTextBox1.Text += "\nзапятая: " + counter + "\nшифр: "+ code));
-
                 }
                 else if (port.BytesToRead > 25) {
                     port.DiscardInBuffer();
