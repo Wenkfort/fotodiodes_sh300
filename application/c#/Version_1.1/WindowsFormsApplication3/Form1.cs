@@ -17,23 +17,23 @@ namespace WindowsFormsApplication3
             GetAvailablePorts();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            object selectedItem = comboBox1.SelectedItem;
-            if (CreateNewConnection(selectedItem)) richTextBox1.Text = "Hello";
+        private void connect_button_click(object sender, EventArgs e) {
+            object selectedItem = com_ports_combo_box.SelectedItem;
+            if (CreateNewConnection(selectedItem)) main_text_box.Text = "Hello";
             else {
-                richTextBox1.Text = "Oops!";
+                main_text_box.Text = "Oops!";
                 return;
             }
             EnabledButtons(false, true, false, true);
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void disconnect_button_click(object sender, EventArgs e) {
             EnabledButtons(true, false, false, false);
             port.Close();
-            richTextBox1.Text = "Connect to device!";
+            main_text_box.Text = "Connect to device!";
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void save_button_click(object sender, EventArgs e) {
             EnabledButtons(false, true, false, true);
             File1 = new SaveFileDialog();
             if (path == "") {
@@ -43,7 +43,7 @@ namespace WindowsFormsApplication3
                     writeToFile();
                 }
                 else {
-                    richTextBox1.Text = "Choose path to file!";
+                    main_text_box.Text = "Choose path to file!";
                     return;
                 }
             }
@@ -52,24 +52,24 @@ namespace WindowsFormsApplication3
             }
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        private void start_button_click(object sender, EventArgs e) {
             try {
-                voltage = comboBox2.SelectedItem.ToString();
+                voltage = range_combo_box.SelectedItem.ToString();
                 EnabledButtons(false, true, false, false);
             }
             catch {
-                richTextBox1.Text = "Choose range!";
+                main_text_box.Text = "Choose range!";
                 return;
             }
-            richTextBox1.Clear();
-            button4.Enabled = false;
+            main_text_box.Clear();
+            start_button.Enabled = false;
             port.DiscardInBuffer();
 
             int numberOfRelays = 0;
-            if (radioButton1.Checked) numberOfRelays = 16;
-            else if (radioButton2.Checked) numberOfRelays = 8;
+            if (relays_16_radio_button.Checked) numberOfRelays = 16;
+            else if (relays_8_radio_button.Checked) numberOfRelays = 8;
             else {
-                richTextBox1.Text = "Choose number of channels!";
+                main_text_box.Text = "Choose number of channels!";
                 EnabledButtons(false, true, false, true);
                 return;
             }
@@ -81,9 +81,9 @@ namespace WindowsFormsApplication3
                 Thread.Sleep(400);
                 ReadPort();
                 //richTextBox1.Text += " code: " + code;
-                if (i != numberOfRelays) richTextBox1.Text += ",  ";
+                if (i != numberOfRelays) main_text_box.Text += ",  ";
             }
-            richTextBox1.Text += "" + voltage;
+            main_text_box.Text += "" + voltage;
 
             EnabledButtons(false, true, true, true);
             port.Write("e");
@@ -91,22 +91,22 @@ namespace WindowsFormsApplication3
 
         private void GetAvailablePorts() {
             string[] ports = SerialPort.GetPortNames();
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(ports);
+            com_ports_combo_box.Items.Clear();
+            com_ports_combo_box.Items.AddRange(ports);
         }
 
         private void SetTextComboBox2() {
-            comboBox2.Items.Add("A");
-            comboBox2.Items.Add("mA");
-            comboBox2.Items.Add("uA");
-            comboBox2.Items.Add("nA");
+            range_combo_box.Items.Add("A");
+            range_combo_box.Items.Add("mA");
+            range_combo_box.Items.Add("uA");
+            range_combo_box.Items.Add("nA");
         }
 
         private void EnabledButtons(bool connect, bool disconnect, bool writeFile, bool start) {
-            button1.Enabled = connect;
-            button2.Enabled = disconnect;
-            button3.Enabled = writeFile;
-            button4.Enabled = start;
+            connect_button.Enabled = connect;
+            disconnect_button.Enabled = disconnect;
+            save_button.Enabled = writeFile;
+            start_button.Enabled = start;
         }
 
         public bool CreateNewConnection(object selectedItem) {
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication3
         private void ReadPort() {
             try {
                 if (port.BytesToRead == 1) {
-                    richTextBox1.Text += "I am okay";
+                    main_text_box.Text += "I am okay";
                 }
                 if (port.BytesToRead == 25) {
                     counter = 0;
@@ -154,9 +154,9 @@ namespace WindowsFormsApplication3
                     //richTextBox1.Text += temp;
 
                     //1/0 - H5
-                    if (a[4] == '1') richTextBox1.Text += "1";
-                    else richTextBox1.Text += "0";
-                    if (code == 0 || code == 2) richTextBox1.Text += ".";
+                    if (a[4] == '1') main_text_box.Text += "1";
+                    else main_text_box.Text += "0";
+                    if (code == 0 || code == 2) main_text_box.Text += ".";
 
                     //Цифры H4 - H1
                     for (int i = 0; i < 4; i++) {
@@ -166,8 +166,8 @@ namespace WindowsFormsApplication3
                                 result += Convert.ToInt32(Math.Pow(2, 3 - j));
                             }
                         }
-                        richTextBox1.Text += result;
-                        if ((i == 0 && code == 3) || (i == 1 && code == 1) || (i == 1 && code == 4)) richTextBox1.Text += ".";
+                        main_text_box.Text += result;
+                        if ((i == 0 && code == 3) || (i == 1 && code == 1) || (i == 1 && code == 4)) main_text_box.Text += ".";
                     }
                     limit = (code == 0) ? 1000 : ((code == 1) ? 100 : ((code == 2) ? 1 : 10));
                     //if (counter == 1) limit /= 10;
@@ -180,12 +180,12 @@ namespace WindowsFormsApplication3
                 }
                 else if (port.BytesToRead > 25) {
                     port.DiscardInBuffer();
-                    richTextBox1.Text = " Incorrect incoming data. Retry!";
+                    main_text_box.Text = " Incorrect incoming data. Retry!";
                     port.DiscardInBuffer();
                 }
             }
             catch (TimeoutException) {
-                richTextBox1.Text = "Retry!\n";
+                main_text_box.Text = "Retry!\n";
                 port.DiscardInBuffer();
             }
         }
@@ -193,13 +193,13 @@ namespace WindowsFormsApplication3
         private void writeToFile() {
             // Create a file to write to.
             using (StreamWriter sw = File.AppendText(path)) {
-                sw.WriteLine(richTextBox1.Text);
+                sw.WriteLine(main_text_box.Text);
             }
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            time = trackBar1.Value * 200;
+            time = time_track_bar.Value * 200;
         }
     }
 }

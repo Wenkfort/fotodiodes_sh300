@@ -26,3 +26,13 @@ C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\Windows
 C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.cache
 C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.exe
 C:\Users\000\YandexDisk\Работа\Приложение\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.pdb
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe.config
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.exe
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\bin\Debug\UssrMultimeter.pdb
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.AssemblyReference.cache
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.Properties.Resources.resources
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.cache
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.CoreCompileInputs.cache
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.exe
+C:\Users\wenkf\sh300\fotodiodes_sh300\application\c#\Version_1.1\WindowsFormsApplication3\obj\Debug\UssrMultimeter.pdb
